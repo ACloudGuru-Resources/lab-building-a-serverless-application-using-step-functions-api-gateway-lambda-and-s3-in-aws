@@ -19,8 +19,6 @@ def lambda_handler(event, context):
     checks.append(type(data['waitSeconds']) == int)
     checks.append('preference' in data)
     checks.append('message' in data)
-    if data.get('preference') == 'sms':
-        checks.append('phone' in data)
     if data.get('preference') == 'email':
         checks.append('email' in data)
 
