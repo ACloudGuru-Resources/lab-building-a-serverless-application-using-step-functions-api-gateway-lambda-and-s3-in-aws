@@ -13,7 +13,7 @@ var resultsDiv = document.getElementById('results-message')
 function waitSecondsValue() { return document.getElementById('waitSeconds').value }
 function messageValue() { return document.getElementById('message').value }
 function emailValue() { return document.getElementById('email').value }
-function phoneValue() { return document.getElementById('phone').value }
+
 
 function clearNotifications() {
     // Clear any exisiting notifications in the browser notifications divs
@@ -22,17 +22,8 @@ function clearNotifications() {
     successDiv.textContent = '';
 }
 
-// Add listeners for each button that make the API request
-document.getElementById('bothButton').addEventListener('click', function(e) {
-    sendData(e, 'both');
-});
-
 document.getElementById('emailButton').addEventListener('click', function(e) {
     sendData(e, 'email');
-});
-
-document.getElementById('smsButton').addEventListener('click', function(e) {
-    sendData(e, 'sms');
 });
 
 function sendData (e, pref) {
@@ -51,7 +42,7 @@ function sendData (e, pref) {
             preference: pref,
             message: messageValue(),
             email: emailValue(),
-            phone: phoneValue()
+            
         }),
         mode: 'cors'
     })
